@@ -7,10 +7,10 @@ if ( !class_exists( 'WP_Http' ) ) {
 require_once( 'debug.php' );
 
 define( 'WORDTWIT_OAUTH_CONSUMER_KEY', '2KwgBVycTRipJf4EO918Aw' );
-define( 'WORDTWIT_OAUTH_REQUEST_URL', 'https://api.twitter.com/oauth/request_token' );
-define( 'WORDTWIT_OAUTH_ACCESS_URL', 'https://api.twitter.com/oauth/access_token' );
-define( 'WORDTWIT_OAUTH_AUTHORIZE_URL', 'https://api.twitter.com/oauth/authorize' );
-define( 'WORDTWIT_OAUTH_REALM', 'https://twitter.com/' );
+define( 'WORDTWIT_OAUTH_REQUEST_URL', 'https://api.x.com/oauth/request_token' );
+define( 'WORDTWIT_OAUTH_ACCESS_URL', 'https://api.x.com/oauth/access_token' );
+define( 'WORDTWIT_OAUTH_AUTHORIZE_URL', 'https://api.x.com/oauth/authorize' );
+define( 'WORDTWIT_OAUTH_REALM', 'https://x.com/' );
 
 class WordTwitOAuth {
 	var $duplicate_tweet;
@@ -69,7 +69,7 @@ class WordTwitOAuth {
 			$encoded_params[] = $this->encode( $key ) . '=' . $this->encode( $value );
 		}
 
-		$base_string = $base_string . $this->encode( implode( $encoded_params, "&" ) );
+		$base_string = $base_string . $this->encode( implode( "&", $encoded_params ) );
 
 		WORDTWIT_DEBUG( 'Signature base string is: ' . $base_string );
 
@@ -229,7 +229,7 @@ class WordTwitOAuth {
 				}
 			}
 
-			$header .= implode( $all_params, ", " );
+			$header .= implode( ", ", $all_params );
 
 			return $this->do_request( $url, $header, $other_params, $use_get_request );
 		} else {

@@ -31,11 +31,12 @@ function wtAccountPage() {
 	var twitterAddButton = jQuery( '#twitter-add-button' );
 	if ( twitterAddButton.length ) {
 		if ( !twitterAddButton.attr( 'disabled' ) ) {
-			twitterAddButton.live( 'click', function( e ) {
+			twitterAddButton.click( function( e ) {
 				
 				if ( !twitterAddButton.attr( 'disabled' ) ) {
 					twitterAddButton.attr( 'disabled', 'disabled' );
 					wtAdminAjax( 'twitter-add', {}, function( result ) {	
+						alert( result );
 						window.location.href = result;
 					});
 				}
@@ -94,7 +95,7 @@ function wtAccountPage() {
 function wtSetupTabSwitching() {
 	var adminTabSwitchLinks = jQuery( 'a.wordtwit-admin-switch' );
 	if ( adminTabSwitchLinks.length ) {
-		adminTabSwitchLinks.live( 'click', function( e ) {
+		adminTabSwitchLinks.click( function( e ) {
 			var targetTabId = '';
 			var targetTabSection = '';
 			var targetArea = jQuery( this ).attr( 'rel' );
@@ -197,7 +198,7 @@ function wtSetupGlobals() {
 	jQuery( '#twitboard .box-holder' ).equalHeights( 300, 450 );
 		
 	
-	jQuery( '#contributors_can_add_accounts' ).live( 'change', function() {
+	jQuery( '#contributors_can_add_accounts' ).change( function() {
 		if ( jQuery( this ).attr( 'checked' ) ) {
 			jQuery( '#setting_minimum_user_capability_for_account_add' ).slideDown();
 		} else {
@@ -205,7 +206,7 @@ function wtSetupGlobals() {
 		}
 	}).change();
 	
-	jQuery( '#url_shortener' ).live( 'change', function() {
+	jQuery( '#url_shortener' ).change( function() {
 		var currentValue = jQuery( this ).val();
 		
 		jQuery( '#setting_cloudapp_password, #setting_cloudapp_username, #setting_yourls_path, #setting_yourls_signature, #setting_bitly_api_key, #setting_bitly_username' ).hide();
@@ -222,7 +223,7 @@ function wtSetupGlobals() {
 		}
 	}).change();
 	
-	jQuery( 'a#estimate-offset' ).live( 'click', function( e ) {
+	jQuery( 'a#estimate-offset' ).click( function( e ) {
 		jQuery( '#estimate-offset' ).append( '<span id="small-spinner"></span>' );	
 		wtAdminAjax( 'estimate-offset', {}, function( result ) {	
 			jQuery( '#oauth_time_offset' ).val( result );
@@ -232,7 +233,7 @@ function wtSetupGlobals() {
 		e.preventDefault();
 	});	
 	
-	jQuery( '#setting_custom_consumer_key, #custom_consumer_key' ).live( 'change', function() {
+	jQuery( '#setting_custom_consumer_key, #custom_consumer_key' ).change( function() {
 		if ( !wtNotifiedCustomKeyWarning ) {
 			alert( WordTwitProCustom.custom_key_warning );
 			wtNotifiedCustomKeyWarning = 1;
