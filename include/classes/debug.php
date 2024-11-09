@@ -25,7 +25,7 @@ class WordTwitDebug {
 
 	function __construct() {
 		$this->debug_file = false;
-		$this->enable( false );
+		$this->enable( true );
 	}
 	
 	function is_enabled() {
