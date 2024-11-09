@@ -6,7 +6,6 @@ if ( !class_exists( 'WP_Http' ) ) {
 
 require_once( 'debug.php' );
 
-define( 'WORDTWIT_OAUTH_CONSUMER_KEY', '2KwgBVycTRipJf4EO918Aw' );
 define( 'WORDTWIT_OAUTH_REQUEST_URL', 'https://api.x.com/oauth/request_token' );
 define( 'WORDTWIT_OAUTH_ACCESS_URL', 'https://api.x.com/oauth/access_token' );
 define( 'WORDTWIT_OAUTH_AUTHORIZE_URL', 'https://api.x.com/oauth/authorize' );
