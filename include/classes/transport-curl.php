@@ -3,8 +3,8 @@
 require_once( 'transport.php' );
 
 class WordTwitTransportCurl extends WordTwitTransport {
-	function WordTwitTransportCurl() {
-		parent::WordTwitTransport( 'Curl', 'curl' );
+	function __construct() {
+		parent::__construct( 'Curl', 'curl' );
 	}
 	
 	function supports_ip_address_override() {

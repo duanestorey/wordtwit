@@ -3,8 +3,8 @@
 require_once( 'transport.php' );
 
 class WordTwitTransportWP extends WordTwitTransport {
-	function WordTwitTranspotWP() {
-		WordTwitTransport( 'WordPress', 'wp' );
+	function __construct() {
+		parent::__construct( 'WordPress', 'wp' );
 		
 		require_once( ABSPATH . WPINC. '/class-http.php' );
 	}

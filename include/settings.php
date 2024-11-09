@@ -5,7 +5,7 @@ class WordTwitSettings extends stdClass
 };
 
 class WordTwitDefaultSettings extends WordTwitSettings {
-	function WordTwitDefaultSettings() {
+	function __construct() {
 		$this->test_setting = 'help';
 		
 		$this->accounts = array();

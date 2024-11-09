@@ -23,7 +23,7 @@ class WordTwitDebug {
 	var $debug_file;
 	var $log_messages;
 
-	function WordTwitDebug() {
+	function __construct() {
 		$this->debug_file = false;
 		$this->enable( false );
 	}

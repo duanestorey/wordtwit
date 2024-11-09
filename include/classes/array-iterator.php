@@ -10,7 +10,7 @@
 		var $count;		//! A count of all the items in the array
 		var $cur_key;	//! The array key for the current item
 		
-		function WordTwitArrayIterator( $a ) {
+		function __construct( $a ) {
 			$this->array = $a;
 			$this->cur_pos = 0;
 			$this->count = count( $a );

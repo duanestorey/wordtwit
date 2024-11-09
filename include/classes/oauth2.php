@@ -12,7 +12,7 @@ define( 'WORDTWIT_OAUTH2_GPLUS_CLIENT_SECRET', 'upNsbSJ0l30hn3Q6ObmXPt3w' );
 define( 'WORDTWIT_OAUTH2_GPLUS_SCOPE', 'https://www.googleapis.com/auth/plus.me' );
 
 class WordTwitOAuth2 {
-	function WordTwitOAuth2() {
+	function __construct() {
 		
 	}
 		

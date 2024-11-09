@@ -23,7 +23,7 @@ function wtSetupTweetLog() {
 }
 
 	/* Show saving div when form submit, for some postive feedback */
-	jQuery( '#bnc-submit' ).live( 'click', function() {
+	jQuery( '#bnc-submit' ).click( function() {
 		jQuery( '#saving-ajax' ).fadeIn( 200 );
 	});
 

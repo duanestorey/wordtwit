@@ -11,7 +11,7 @@ class WordTwitPro {
 	
 	var $transient_set;
 	
-	function WordTwitPro() {
+	function __construct() {
 		$this->tabs = array();
 		$this->settings = array();
 
@@ -526,21 +526,13 @@ class WordTwitPro {
 	function cleanup_post_and_get() {
 		if ( count( $_GET ) ) {
 			foreach( $_GET as $key => $value ) {
-				if ( get_magic_quotes_gpc() ) {
-					$this->get[ $key ] = @stripslashes( $value );	
-				} else {
-					$this->get[ $key ] = $value;
-				}
+				$this->get[ $key ] = $value;
 			}	
 		}	
 		
 		if ( count( $_POST ) ) {
 			foreach( $_POST as $key => $value ) {
-				if ( get_magic_quotes_gpc() ) {
-					$this->post[ $key ] = @stripslashes( $value );	
-				} else {
-					$this->post[ $key ] = $value;	
-				}
+				$this->post[ $key ] = $value;	
 			}	
 		}	
 	}
@@ -979,12 +971,7 @@ class WordTwitPro {
 
 		if ( !$this->settings ) {
 			// Return default settings
-			$this->settings = new WordTwitSettings;
-			$defaults = apply_filters( 'wordtwit_default_settings', new WordTwitDefaultSettings );
-
-			foreach( (array)$defaults as $name => $value ) {
-				$this->settings->$name = $value;	
-			}
+			$this->settings = new WordTwitDefaultSettings ;
 
 			return apply_filters( 'wordtwit_settings', $this->settings );	
 		} else {	

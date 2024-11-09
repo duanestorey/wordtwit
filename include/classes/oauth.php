@@ -21,7 +21,7 @@ class WordTwitOAuth {
 	var $oauth_time_offset;
 	var $error_message;
 
-	function WordTwitOAuth() {
+	function __construct() {
 		$this->duplicate_tweet = false;
 		$this->response_code = false;
 		$this->error_message = false;
